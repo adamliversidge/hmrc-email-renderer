@@ -49,5 +49,14 @@ object AgentTemplates {
     plainTemplate = txt.overseas_application_received.f,
     htmlTemplate = html.overseas_application_received.f,
     priority = Some(MessagePriority.Standard))
+    ,
+  MessageTemplate.create(
+    templateId = "client_accepted_authorisation_request",
+    fromAddress = FromAddress.noReply("HMRC Agent Services"),
+    service = Agent,
+    subject = "HMRC: Client accepted your authorisation request",
+    plainTemplate = txt.client_accepted_authorisation_request.f,
+    htmlTemplate = html.client_accepted_authorisation_request.f,
+    priority = Some(MessagePriority.Standard))
   )
 }
