@@ -40,6 +40,7 @@ object TemplateParams {
       "otherReason" -> "We had other reasons that are given here",
       "additionalText" -> "Additional text goes here."
     ),
+    "client_accepted_authorisation_request" -> Map.empty[String, String],
     "overseas_application_accepted" -> Map(
       "tradingName" -> "ABC Accountants Ltd"
     ),
