@@ -1,12 +1,12 @@
 @(params: Map[String, Any])Your client accepted your authorisation request
 
-Dear [Agent name]
+Dear @params("agentName")
 
-Your client [ClientName] has authorised you to:
+Your client @params("clientName") has authorised you to:
 
-view their PAYE income record
-send their Income Tax updates through software
-submit their VAT returns through software
+@for(service <- params.keys.toList.filter(_.startsWith("services")).sorted){
+    @params(service)
+}
 
 Do not reply to this email.
 

@@ -17,12 +17,12 @@
 @(params: Map[String, Any])
 @uk.gov.hmrc.hmrcemailrenderer.templates.helpers.html.template_main(params, "Your client accepted your authorisation request") {
 
-    <p style="font-size: 19px; line-height: 1.315789474; margin: 0 0 15px 0;">Dear [Agent name]</p>
-    <p style="font-size: 19px; line-height: 1.315789474; margin: 0 0 15px 0;">Your client [ClientName] has authorised you to:</p>
+    <p style="font-size: 19px; line-height: 1.315789474; margin: 0 0 15px 0;">Dear @params("agentName")</p>
+    <p style="font-size: 19px; line-height: 1.315789474; margin: 0 0 15px 0;">Your client @params("clientName") has authorised you to:</p>
     <ul style="margin: 0 0 20px 0;">
-        <li style="font-size: 19px">view their PAYE income record</li>
-        <li style="font-size: 19px">send their Income Tax updates through software</li>
-        <li style="font-size: 19px">submit their VAT returns through software</li>
+        @for(service <- params.keys.toList.filter(_.startsWith("services")).sorted){
+            <li style="font-size: 19px">@params(service)</li>
+        }
     </ul>
     <p style="font-size: 19px; line-height: 1.315789474; margin: 0 0 30px 0;">Do not reply to this email.</p>
     <p style="font-size: 19px; line-height: 1.315789474; margin: 0 0 30px 0;">From HMRC Agent Services team</p>
